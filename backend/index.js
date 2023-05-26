@@ -1,10 +1,15 @@
 import express from "express";
 import cors from "cors";
 
-const app= express();
-app.use(cors());
-app.get("/getData",(req,res)=>{
-    res.send("HLorem ipsum dolor sit amet, Nullam vel pharetra tortor, Vestibulum eget risus pulvinar, finibus enim vel, blandit augue.");
+//const express = require('express');
+const app = express();
+
+app.post('/concatenate', (req, res) => {
+  const { FName, LName } = req.body;
+  const fullName = FName + LName;
+  res.json({ fullName });
 });
 
-app.listen(4000,()=>console.log("app is running"));
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
